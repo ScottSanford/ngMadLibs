@@ -1,0 +1,98 @@
+<!doctype html>
+<html ng-app='myApp'>
+<head>
+
+	<title>ngMadLibs</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/styles.css">
+
+
+</head>
+<body>
+	<div class="container-fluid" ng-controller="madLibCtrl">
+		<div class="row">
+			<div class="col-sm-3 header-left">
+				<img src="images/mad-lib-happy-face.png" class="img-responsive">
+			</div>
+			<div class="col-sm-9 header-right">
+				<img src="images/ng-mad-libs-logo.png" class="img-responsive">
+				<h1 class="header-title">Automate This!</h1>
+		    </div>
+		</div>
+		<div class="row form-row">
+		<form role="form" class="col-sm-12 form">
+			<h3 class="col-sm-12 directions">Provide the following words:</h3>
+			<div class="form-group col-sm-12">			
+				<input class="form-group" type="text" placeholder="Time of Day" ng-model="words.timeofDay">
+				<input class="form-group" type="text" placeholder="Adjective" ng-model="words.adjectiveOne">
+				<input class="form-group" type="text" placeholder="Noun" ng-model="words.nounOne">
+				<input class="form-group" type="text" placeholder="Place" ng-model="words.place">
+			</div>
+			<div class="form-group col-sm-12">			
+				<input class="form-group" type="text" placeholder="Adverb" ng-model="words.adverbOne">
+				<input class="form-group" type="text" placeholder="Verb ending in ED" ng-model="words.ED_Verb">
+				<input class="form-group" type="text" placeholder="Noun" ng-model="words.nounTwo">
+				<input class="form-group" type="text" placeholder="Adjective" ng-model="words.adjectiveTwo">
+			</div>
+			<div class="form-group col-sm-12">			
+				<input class="form-group" type="text" placeholder="Color" ng-model="words.color">
+				<input class="form-group" type="text" placeholder="Noun" ng-model="words.nounThree">
+				<input class="form-group" type="text" placeholder="Adjective" ng-model="words.adjectiveThree">
+				<input class="form-group" type="text" placeholder="Article of Clothing (Plural)" ng-model="words.article_of_clothing_plural">
+			</div>
+			<div class="form-group col-sm-12">			
+				<input class="form-group" type="text" placeholder="Body Part" ng-model="words.bodyPart">
+				<input class="form-group" type="text" placeholder="Adjective" ng-model="words.adjectiveFour">
+				<input class="form-group" type="text" placeholder="Adverb" ng-model="words.adverbTwo">
+				<input class="form-group" type="text" placeholder="Liquid" ng-model="words.liquid">
+			</div>
+			<div class="form-group col-sm-12">			
+				<input class="form-group" type="text" placeholder="Body Part" ng-model="words.bodyPartTwo">
+				<input class="form-group" type="text" placeholder="Adjective" ng-model="words.adjectiveFive">
+				<input class="form-group" type="text" placeholder="Ing Verb" ng-model="words.ingVerb">
+				<input class="form-group" type="text" placeholder="Adjective" ng-model="words.adjectiveSix">
+			</div>
+			<div class="form-group col-sm-12">			
+				<input class="form-group" type="text" placeholder="Liquid" ng-model="words.liquidTwo">
+				<input class="form-group" type="text" placeholder="Noun (Plural)" ng-model="words.nounPlural">
+				<input class="form-group" type="text" placeholder="Food (Plural)" ng-model="words.food">
+				<input class="form-group" type="text" placeholder="Color" ng-model="words.colorTwo">
+			</div>
+			<div class="form-group col-sm-12">			
+				<input class="form-group" type="text" placeholder="Animal" ng-model="words.animal">
+				<input class="form-group" type="text" placeholder="Verb" ng-model="words.verb">
+				<input class="form-group" type="text" placeholder="Adverb" ng-model="words.adverbThree">
+				<input class="form-group" type="text" placeholder="Your Name" ng-model="words.yourName">
+			</div>
+		</form>
+		 </div>
+		<div class="row">
+			<h3 class="col-md-12 love-letter">Love Letter</h3>
+			<div class="col-lg-8 madlib">
+				Dear Sweetheart,
+
+				<p>I lay awake all <span class="bold">{{words.timeofDay}}</span> thinking of you, your <span class="bold">{{words.adjectiveOne}}</span> smile, and our <span class="bold">{{words.nounOne}}</span> in the <span class="bold">{{words.place}}</span>. <span class="bold">{{words.adverbOne}}</span>, I recall our meeting, how my heart <span class="bold">{{words.ED_Verb}}</span> with <span class="bold">{{words.nounTwo}}</span> when I first saw you. How <span class="bold">{{words.adjectiveTwo}}</span> you looked in that <span class="bold">{{words.color}}</span> <span class="bold">{{words.nounThree}}</span> and those two <span class="bold">{{words.adjectiveThree}}</span> <span class="bold">{{words.article_of_clothing_plural}}</span> on your <span class="bold">{{words.bodyPart}}</span>!</p>
+
+				<p>I cherished every momwords.ent we were together and was <span class="bold">{{words.adjectiveFour}}</span> when our date came to a close. I can't say how <span class="bold">{{words.adverbTwo}}</span> I regret spilling <span class="bold">{{words.liquid}}</span> on your <span class="bold">{{words.bodyPartTwo}}</span>; you were <span class="bold">{{words.adjectiveFive}}</span> about it, however, for which I am grateful. You are so beautiful when you're <span class="bold">{{words.ingVerb}}</span>.</p>
+
+				<p>You're <span class="bold">{{words.adjectiveSix}}</span> most other times. Your eyes are like deep pools of <span class="bold">{{words.liquidTwo}}</span>, warmed in the moonlight. Your cheeks are as rosy as <span class="bold">{{words.nounPlural}}</span>. Your lips are like succulent <span class="bold">{{words.food}}</span>. Your hair is <span class="bold">{{words.colorTwo}}</span> like a <span class="bold">{{words.animal}}</span> on a summer's day.</p>
+
+				<p>I can't wait to <span class="bold">{{words.verb}}</span> with you again. Write soon.</p>
+
+				<span class="bold">{{words.adverbThree}}</span>,
+
+				<span class="bold">{{words.yourName}}</span>
+
+			<div>
+	    </div>
+    </div>
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>

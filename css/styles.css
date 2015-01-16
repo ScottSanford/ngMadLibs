@@ -40,12 +40,14 @@ input {
 	margin-top:5px;
 }
 
-.bold {
-	font-weight: bold;
+.gender {
+	width:25%;
+	display: block;
+	margin: 0 auto;
 }
 
 .love-letter {
-	margin-top:50px;
+	margin-top:30px;
 	text-align: center;
 }
 
@@ -53,7 +55,5 @@ input {
 	line-height: 2;
 	font-size: 1.2em;
 	text-align: left;
-	margin-top: 25px;
 	width:75%;
-	margin: 0 auto;
 }

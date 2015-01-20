@@ -1,54 +1,43 @@
-
-.header-left img {
-	margin:10px 0 0 25px;
-	display: block;
+.container {
+	width:1024px;
+	border:7px solid;
+	padding-bottom:25px;
+	margin-top: 25px;
 }
 
-.header-right img {
-	display: block;
-	margin:30px auto;
-	width:225px;
-	height: auto;
+.header {
+	padding-bottom: 10px;
+	border-bottom: 7px solid;
 }
 
-.header-title {
-	text-align: center;
-	font-size:3em;
+.ngMadLibs-title {
+	margin-top: 25px;
+}
+
+.automate-title {
+	margin-left: 110px;
 }
 
 .directions {
-	text-align: left;
 	margin-top:50px;
-	margin-left:25px
 }
 
 input {
 	margin:20px;
-	width:165px;
 }
 
-.form-row {
-	padding-bottom: 10px;
-	border-bottom: 1px dashed #ccc;
+.select {
+	width:38%;
+	margin-left:35px;
 }
 
-.form {
-	text-align: center;
+.divider {
+	margin-top:0;
 }
 
-.form-group {
-	margin-top:5px;
-}
-
-.gender {
-	width:25%;
-	display: block;
-	margin: 0 auto;
-}
-
-.love-letter {
-	margin-top:30px;
-	text-align: center;
+.error {
+	color:red;
+	margin-left: 20px;
 }
 
 .madlib {
@@ -56,4 +45,10 @@ input {
 	font-size: 1.2em;
 	text-align: left;
 	width:75%;
+	margin-top: 100px;
+}
+
+.reset-btn {
+	margin-right: 135px;
+	margin-top: 50px;
 }

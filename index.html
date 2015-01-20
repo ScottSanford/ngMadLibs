@@ -5,7 +5,7 @@
 	<title>ngMadLibs</title>
 	
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/styles.css">
@@ -13,55 +13,101 @@
 
 </head>
 <body>
-	<div class="container-fluid" ng-controller="madLibCtrl">
-		<div class="row">
-			<div class="col-sm-3 header-left">
-				<img src="images/mad-lib-happy-face.png" class="img-responsive">
-			</div>
-			<div class="col-sm-9 header-right">
-				<img src="images/ng-mad-libs-logo.png" class="img-responsive">
-				<h1 class="header-title">Automate This!</h1>
-		    </div>
-		</div>
-		<div class="row form-row">
-		<form role="form" class="col-xs-12 form">
-			<h3 class="col-xs-12 directions">Provide the following words:</h3>
-			<div class="form-group col-xs-12">			
-				<input class="form-group" type="text" placeholder="Name" ng-model="words.name">
-				<input class="form-group" type="text" placeholder="Job title" ng-model="words.jobTitle">
-				<input class="form-group" type="text" placeholder="Tedious Task" ng-model="words.tediousTask">
-				<input class="form-group" type="text" placeholder="Dirty Task" ng-model="words.dirtyTask">
-			</div>
-			<div class="form-group col-xs-12">			
-				<input class="form-group" type="text" placeholder="Celebrity" ng-model="words.celebrity">
-				<input class="form-group" type="text" placeholder="Adjective" ng-model="words.adjective">
-				<input class="form-group" type="text" placeholder="Huge number" ng-model="words.hugeNum">
+	<div class="container" ng-controller="madLibCtrl">
+
+		<!-- Title / Header Section -->
+
+		<div class="row header">
+
+			<div class="col-sm-4">
+				<div class="center-block"><img src="images/mad-lib-happy-face.png" class="img-responsive"></div>
 			</div>
 
-            <div class="form-group input-group gender">
-              <h3>Provide a gender:</h3>
-                <span class="input-group-addon">
-                    <input type="radio" ng-model="gender.isFemale" ng-value="false">  Male
-                </span>
-                <span class="input-group-addon">
-                    <input type="radio" ng-model="gender.isFemale" ng-value="true"> Female
-                </span>
-            </div>
-		</form>
-		 </div>
+			<div class="col-sm-8 ngMadLibs-title">
+				<img src="images/ng-mad-libs-logo.png" class="img-responsive">
+				<div class="row">
+					<h1 class="col-xs-6 automate-title">Automate This!</h1>
+				</div>
+		    </div>
+
+		</div>
+
+		<!-- End of Title / Header Section -->
+		<!-- Start of MadLib Form Section -->
+
+
+		<form class="col-sm-12 form" role="form" name="madLibForm" novalidate ng-hide="generateMadLib && madLibForm.$valid">
+
 		<div class="row">
-			<h3 class="col-lg-12 love-letter">Love Letter</h3>
+			<h3 class="col-lg-5 pull-left directions">Provide the following words:</h3>
+		</div>
+
+			<div class="row">
+				<div class="form-group col-sm-5">			
+					<input name="input" class="form-control" type="text" placeholder="Name" ng-model="words.name" required>
+					<input name="input" class="form-control" type="text" placeholder="Job title" ng-model="words.jobTitle" required>
+					<input name="input" class="form-control" type="text" placeholder="Tedious Task" ng-model="words.tediousTask" required>
+					<input name="input" class="form-control" type="text" placeholder="Dirty Task" ng-model="words.dirtyTask" required>
+				</div>
+				<div class="form-group col-sm-5">			
+					<input name="input" class="form-control" type="text" placeholder="Celebrity" ng-model="words.celebrity" required>
+					<input name="input" class="form-control" type="text" placeholder="Adjective" ng-model="words.adjective" required>
+					<input name="number" class="form-control" type="number" placeholder="Huge number" ng-model="words.hugeNum" required>
+				</div>
+			
+			</div>
+
+
+			<hr class="divider">
+
+			<div class="row">
+
+	            <select name="gender" class="form-control select" ng-options="gender.show for gender in genderSelect track by gender.bool" ng-model="current" required></select>
+
+			</div>
+
+			<hr class="divider-two">
+
+			<input type="submit" class="btn btn-primary" value="Generate My Mad Lib" ng-click="submit()">
+
+			<!-- ngMessages -->
+
+		 	<div ng-if="madLibForm.$submitted" ng-messages="madLibForm
+		 	.input.$error">
+		    	<span ng-message="required" class="error">You did not enter a field!</span>
+		 	</div>
+
+		 	<div ng-if="madLibForm.$submitted" ng-messages="madLibForm.number.$error">
+		    	<span ng-message="required" class="error">Please enter a number</span>
+		 	</div>
+
+			<!-- End of ngMessages -->
+
+		</form>
+
+
+		<!-- End of MadLib form -->
+		<!-- Start of MadLib output -->
+
+		<div class="row" ng-show="madLibForm.$valid && generateMadLib">
 			<div class="center-block madlib">
 
-				<strong>{{words.name}}</strong> was a <strong>{{words.jobTitle}}</strong> who loved technology. Although <strong>{{gender.heShe()}}</strong> loved parts of {{gender.himHer()}} job, <strong>{{gender.heShe()}}</strong> absolutely hated <strong>{{words.tediousTask}}</strong> and <strong>{{dirtyTask}}</strong>. So, <strong>{{words.name}}</strong> met with {{gender.himHer()}} life mentor <strong>{{words.celebrity}}</strong> who told {{gender.himHer()}} to learn how to <strong>{{words.uselessSkill}}</strong> with Thinkful. Thinkful didn't offer a course on <strong>{{words.uselessSkill}}</strong> so <strong>{{gender.heShe()}}</strong> studied programming instead. 
+				<strong>{{words.name}}</strong> was a <strong>{{words.jobTitle}}</strong> who loved technology. Although <strong>{{heShe()}}</strong> loved parts of <strong>{{himHer()}}</strong> job, <strong>{{heShe()}}</strong> absolutely hated <strong>{{words.tediousTask}}</strong> and <strong>{{words.dirtyTask}}</strong>. So, <strong>{{words.name}}</strong> met with <strong>{{himHer()}}</strong> life mentor <strong>{{words.celebrity}}</strong> who told <strong>{{himHer()}}</strong> to learn how to <strong>{{words.uselessSkill}}</strong> with Thinkful. Thinkful didn't offer a course on <strong>{{words.uselessSkill}}</strong> so <strong>{{heShe()}}</strong> studied programming instead. 
  
-				What a great decision! With <strong>{{gender.himHer()}}</strong> new skills, <strong>{{words.name}}</strong> built a(n) <strong>{{words.adjective}}</strong> robot named <strong>{{gender.heShe()}}</strong> that not only loved <strong>{{words.dirtyTask}}</strong> but did it <strong>{{words.hugeNum}}</strong> faster.
+				What a great decision! With <strong>{{himHer()}}</strong> new skills, <strong>{{words.name}}</strong> built a(n) <strong>{{words.adjective}}</strong> robot named <strong>{{heShe()}}</strong> that not only loved <strong>{{words.dirtyTask}}</strong> but did it <strong>{{words.hugeNum | number}}</strong> faster.
 
-			<div>
-	    </div>
-    </div>
+    		</div>
+			
+				<button class="btn btn-primary pull-right reset-btn" ng-click="reset();">Start Over</button>
+
+   		</div>
+		
+		<!-- End of MadLib output -->
+
+   	</div>
 
 	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/ngMessages.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 
 </body>

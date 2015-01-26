@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="stylesheet" href="css/styles.css">
 
 
@@ -20,7 +21,7 @@
 		<div class="row header">
 
 			<div class="col-sm-4">
-				<div class="center-block"><img src="images/mad-lib-happy-face.png" class="img-responsive"></div>
+				<div class="center-block"><img src="images/mad-lib-happy-face.png" class="img- happy-face"></div>
 			</div>
 
 			<div class="col-sm-8 ngMadLibs-title">
@@ -35,66 +36,66 @@
 		<!-- End of Title / Header Section -->
 		<!-- Start of MadLib Form Section -->
 
-
-		<form class="col-sm-12 form" role="form" name="madLibForm" novalidate ng-hide="generateMadLib && madLibForm.$valid">
-
-		<div class="row">
-			<h3 class="col-lg-5 pull-left directions">Provide the following words:</h3>
-		</div>
+			<form class="col-sm-12 reset" role="form" name="madLibForm" novalidate ng-hide="generateMadLib && madLibForm.$valid">
 
 			<div class="row">
-				<div class="form-group col-sm-5">			
-					<input name="input" class="form-control" type="text" placeholder="Name" ng-model="words.name" required>
-					<input name="input" class="form-control" type="text" placeholder="Job title" ng-model="words.jobTitle" required>
-					<input name="input" class="form-control" type="text" placeholder="Tedious Task" ng-model="words.tediousTask" required>
-					<input name="input" class="form-control" type="text" placeholder="Dirty Task" ng-model="words.dirtyTask" required>
-				</div>
-				<div class="form-group col-sm-5">			
-					<input name="input" class="form-control" type="text" placeholder="Celebrity" ng-model="words.celebrity" required>
-					<input name="input" class="form-control" type="text" placeholder="Adjective" ng-model="words.adjective" required>
-					<input name="number" class="form-control" type="number" placeholder="Huge number" ng-model="words.hugeNum" required>
-				</div>
-			
+				<h3 class="col-lg-5 pull-left directions">Provide the following words:</h3>
 			</div>
 
+				<div class="row">
+					<div class="form-group col-sm-5">			
+						<input name="input" class="form-control" type="text" placeholder="Name" ng-model="words.name" required>
+						<input name="input" class="form-control" type="text" placeholder="Job title" ng-model="words.jobTitle" required>
+						<input name="input" class="form-control" type="text" placeholder="Tedious Task" ng-model="words.tediousTask" required>
+						<input name="input" class="form-control" type="text" placeholder="Dirty Task" ng-model="words.dirtyTask" required>
+					</div>
+					<div class="form-group col-sm-5">			
+						<input name="input" class="form-control" type="text" placeholder="Useless Skill" ng-model="words.uselessSkill" required>
+						<input name="input" class="form-control" type="text" placeholder="Celebrity" ng-model="words.celebrity" required>
+						<input name="input" class="form-control" type="text" placeholder="Adjective" ng-model="words.adjective" required>
+						<input name="number" class="form-control" type="number" placeholder="Huge number" ng-model="words.hugeNum" required>
+					</div>
+				
+				</div>
 
-			<hr class="divider">
 
-			<div class="row">
+				<hr class="divider">
 
-	            <select name="gender" class="form-control select" ng-options="gender.show for gender in genderSelect track by gender.bool" ng-model="current" required></select>
+				<div class="row">
 
-			</div>
+		            <select name="gender" class="form-control select" ng-options="gender.show for gender in genderSelect track by gender.bool" ng-model="current" required></select>
 
-			<hr class="divider-two">
+				</div>
 
-			<input type="submit" class="btn btn-primary" value="Generate My Mad Lib" ng-click="submit()">
+				<hr class="divider-two">
 
-			<!-- ngMessages -->
+				<input type="submit" class="btn" value="Sample Data" ng-click="sampleData()" ng-hide="!true">
+				<input type="submit" class="btn" value="Generate My Mad Lib" ng-click="submit()">
 
-		 	<div ng-if="madLibForm.$submitted" ng-messages="madLibForm
-		 	.input.$error">
-		    	<span ng-message="required" class="error">You did not enter a field!</span>
-		 	</div>
+				<!-- ngMessages -->
 
-		 	<div ng-if="madLibForm.$submitted" ng-messages="madLibForm.number.$error">
-		    	<span ng-message="required" class="error">Please enter a number</span>
-		 	</div>
+			 	<div ng-if="madLibForm.$submitted" ng-messages="madLibForm
+			 	.input.$error" class="error-messages">
+			    	<span ng-message="required" class="error">You did not enter a field!</span>
+			 	</div>
 
-			<!-- End of ngMessages -->
+			 	<div ng-if="madLibForm.$submitted" ng-messages="madLibForm.number.$error" class="error-messages">
+			    	<span ng-message="required" class="error">Please enter a number</span>
+			 	</div>
 
-		</form>
+				<!-- End of ngMessages -->
 
+			</form>
 
 		<!-- End of MadLib form -->
 		<!-- Start of MadLib output -->
 
-		<div class="row" ng-show="madLibForm.$valid && generateMadLib">
+		<div class="row animation" ng-show="madLibForm.$valid && generateMadLib">
 			<div class="center-block madlib">
 
-				<strong>{{words.name}}</strong> was a <strong>{{words.jobTitle}}</strong> who loved technology. Although <strong>{{heShe()}}</strong> loved parts of <strong>{{himHer()}}</strong> job, <strong>{{heShe()}}</strong> absolutely hated <strong>{{words.tediousTask}}</strong> and <strong>{{words.dirtyTask}}</strong>. So, <strong>{{words.name}}</strong> met with <strong>{{himHer()}}</strong> life mentor <strong>{{words.celebrity}}</strong> who told <strong>{{himHer()}}</strong> to learn how to <strong>{{words.uselessSkill}}</strong> with Thinkful. Thinkful didn't offer a course on <strong>{{words.uselessSkill}}</strong> so <strong>{{heShe()}}</strong> studied programming instead. 
+				<strong>{{words.name}}</strong> was a <strong>{{words.jobTitle}}</strong> who loved technology. Although <strong>{{heShe()}}</strong> loved parts of <strong>{{hisHer()}}</strong> job, <strong>{{heShe()}}</strong> absolutely hated <strong>{{words.tediousTask}}</strong> and <strong>{{words.dirtyTask}}</strong>. So, <strong>{{words.name}}</strong> met with <strong>{{hisHer()}}</strong> life mentor <strong>{{words.celebrity}}</strong> who told <strong>{{himHer()}}</strong> to learn how to <strong>{{words.uselessSkill}}</strong> with Thinkful. Thinkful didn't offer a course on <strong>{{words.uselessSkill}}</strong> so <strong>{{heShe()}}</strong> studied programming instead. 
  
-				What a great decision! With <strong>{{himHer()}}</strong> new skills, <strong>{{words.name}}</strong> built a(n) <strong>{{words.adjective}}</strong> robot named <strong>{{heShe()}}</strong> that not only loved <strong>{{words.dirtyTask}}</strong> but did it <strong>{{words.hugeNum | number}}</strong> faster.
+				What a great decision! With <strong>{{hisHer()}}</strong> new skills, <strong>{{words.name}}</strong> built a(n) <strong>{{words.adjective}}</strong> robot named <strong>{{words.celebrity}}</strong> that not only loved <strong>{{words.dirtyTask}}</strong> but did it <strong>{{words.hugeNum | number}}</strong> faster.
 
     		</div>
 			
@@ -108,6 +109,7 @@
 
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/ngMessages.js"></script>
+	<script type="text/javascript" src="js/angular-animate.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 
 </body>

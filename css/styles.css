@@ -1,13 +1,18 @@
 .container {
 	width:1024px;
 	border:7px solid;
-	padding-bottom:25px;
+	padding-bottom:75px;
 	margin-top: 25px;
 }
 
 .header {
 	padding-bottom: 10px;
 	border-bottom: 7px solid;
+}
+
+.happy-face {
+	margin-top:10px;
+	margin-left: 10px;
 }
 
 .ngMadLibs-title {
@@ -38,6 +43,16 @@ input {
 .error {
 	color:red;
 	margin-left: 20px;
+	position: relative;
+	top:10px;
+	font-size:1.2em;
+}
+
+.error-messages.ng-enter {
+	-webkit-animation: shake .75s;
+	-moz-animation: shake .75s;
+	-o-animation: shake .75s;
+	animation: shake .75s;
 }
 
 .madlib {
@@ -48,7 +63,65 @@ input {
 	margin-top: 100px;
 }
 
+input.btn {
+  border: 0;
+  background: #0087cc;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 #006599;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  margin-left: 20px;
+  outline: 0;
+  padding: 12px 20px;
+  transition: all .1s linear;
+}
+input.btn:active {
+  box-shadow: 0 2px 0 #006599;
+  transform: translateY(3px);
+}
+
 .reset-btn {
 	margin-right: 135px;
 	margin-top: 50px;
+    border: 0;
+    background: #0087cc;
+    border-radius: 4px;
+    box-shadow: 0 5px 0 #006599;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    outline: 0;
+    padding: 12px 20px;
+    transition: all .1s linear;
 }
+
+.reset-btn:active {
+  box-shadow: 0 2px 0 #006599;
+  transform: translateY(3px);
+}
+
+/*  Animations  */
+
+.animation.ng-hide-remove {
+	-webkit-animation: tada 1s;
+	-moz-animation: tada 1s;
+	-o-animation: tada 1s;
+	animation: tada 1s;
+}
+
+.reset.ng-hide-remove {
+	-webkit-animation: zoomIn 1s;
+	-moz-animation: zoomIn 1s;
+	-o-animation: zoomIn 1s;
+	animation: zoomIn 1s;
+}
+
+@media(max-width:767px){
+	.form-control {
+		width:50%;
+	}
+}
+
+
